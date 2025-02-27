@@ -2,11 +2,11 @@
 
 ## Project Description
 This project is a part of the final project for the course Data Science 209: Data Science for Industry at UC Berkeley. The project is a collaboration between the following team members:
-- [Beatricce Filart](github.com/bfilart)
-- [Hannah MacDonald](github.com/hanmmac)
+- [Beatricce Filart](https://github.com/bfilart)
+- [Hannah MacDonald](https://github.com/hanmmac)
 - [Agam Bansal](github.com/agambansal7)
-- [Scott Stossel](github.com/scottstossel)
-- [Perry Gabriel](github.com/prgabriel)
+- [Scott Stossel](https://github.com/scottstossel)
+- [Perry Gabriel](https://github.com/prgabriel)
 
 
 ## Project Structure
