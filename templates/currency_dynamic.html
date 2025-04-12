@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Currency Strength vs Tourism</title>
+    <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        background-color: #004080;
+        color: white;
+        padding: 1rem 2rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      #plot {
+        width: 90%;
+        max-width: 1000px;
+        height: 600px;
+        margin: 2rem auto;
+      }
+
+      footer {
+        background-color: #f1f1f1;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Currency Strength vs. Tourism</h1>
+    </header>
+    <div id="plot"></div>
+    <footer>
+      <p>© 2025 Perry Gabriel. All rights reserved.</p>
+    </footer>
+    <script>
+      const trace1 = {
+        x: ['USD', 'EUR', 'GBP', 'JPY', 'CAD', 'AUD'],
+        y: [300, 280, 260, 200, 220, 210],
+        mode: 'markers',
+        type: 'scatter',
+        marker: { size: 20 },
+        text: ['USA', 'Europe', 'UK', 'Japan', 'Canada', 'Australia']
+      };
+
+      const layout = {
+        title: 'Currency Strength vs Number of Tourists',
+        xaxis: { title: 'Currency' },
+        yaxis: { title: 'Number of Tourists (in thousands)' }
+      };
+
+      Plotly.newPlot('plot', [trace1], layout);
+    </script>
+  </body>
+</html>
