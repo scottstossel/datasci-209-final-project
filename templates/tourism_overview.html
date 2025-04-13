@@ -83,6 +83,54 @@
     #scrollToTop:hover {
       background-color: #084298;
     }
+    /* Footer section styles */
+    .footer-cta {
+      background-color: #3366ff;
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .footer-cta h4 {
+      font-weight: 700;
+    }
+    .footer-cta p {
+      font-size: 1.1rem;
+    }
+    .footer-cta .btn {
+      margin-top: 1rem;
+      font-weight: 500;
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+    }
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .site-footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .site-footer nav a {
+      color: var(--footer-link);
+      /* margin: 0 1rem; */
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+    .site-footer nav a:hover {
+      text-decoration: underline;  
+      transform: scale(1.05);
+      color: #ffffff;
+    }
+    .site-footer nav a[href="/contact"]::before {
+      content: "📬 ";
+    }
+    .site-footer nav a[href="/"]::before {
+      content: "🏠 ";
+    }
   </style>
 </head>
 <body>
@@ -139,10 +187,13 @@
 <footer class="bg-dark text-white text-center py-3 mt-auto">
   <div class="container">
     <p class="mb-0">© 2025 Global Tourism Insights. All rights reserved.</p>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/contact">Contact Us</a>
+    </nav>
   </div>
 </footer>
 
-<!-- Scripts -->
 <!-- Dark mode toggle script -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
