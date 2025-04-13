@@ -47,28 +47,55 @@
 <!-- CAROUSEL -->
 <div id="tourismCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
+
     <div class="carousel-item active">
-      <img src="https://source.unsplash.com/1600x600/?mountains,nature" class="d-block w-100" alt="Mountain Retreats" />
+      <!-- <img src="https://source.unsplash.com/1600x600/?mountains,nature" class="d-block w-100" alt="Mountain Retreats" /> -->
+      <img src="{{ url_for('static', filename='green_mountains.jpg') }}">
       <div class="carousel-caption d-none d-md-block text-start">
         <h5>Mountain Retreats</h5>
         <p>Explore lush green mountains with winding rivers and peaceful valleys.</p>
       </div>
     </div>
+
     <div class="carousel-item">
-      <img src="https://source.unsplash.com/1600x600/?beach,tourism" class="d-block w-100" alt="Beach Destinations" />
+      <!-- <img src="https://source.unsplash.com/1600x600/?beach,tourism" class="d-block w-100" alt="Beach Destinations" /> -->
+      <img src="{{ url_for('static', filename='coastal_waterfall.jpg') }}">
       <div class="carousel-caption d-none d-md-block text-start">
         <h5>Beach Destinations</h5>
         <p>Discover tropical beaches with turquoise waters and soft white sands.</p>
       </div>
     </div>
+
+
     <div class="carousel-item">
-      <img src="https://source.unsplash.com/1600x600/?cityscape,travel" class="d-block w-100" alt="Urban Adventures" />
+        <img src="{{ url_for('static', filename='mountain_roadtrip.jpg') }}">
+        <div class="carousel-caption d-none d-md-block text-start">
+            <h5>Road Trip Journeys</h5>
+            <p>Embark on unforgettable road trips through dramatic mountain landscapes.</p>
+          </div>
+        </div>
+      </div>
+    
+    <div class="carousel-item">
+      <!-- <img src="https://source.unsplash.com/1600x600/?cityscape,travel" class="d-block w-100" alt="Urban Adventures" /> -->
+      <img src="{{ url_for('static', filename='snow_mountains.jpg') }}">
       <div class="carousel-caption d-none d-md-block text-start">
-        <h5>Urban Adventures</h5>
-        <p>Uncover cultural gems and nightlife in bustling cities around the world.</p>
+        <h5>Alpine Wonders</h5>
+        <p>Witness the majesty of snow-capped mountain ranges and breathtaking vistas.</p>
       </div>
     </div>
+
+    <div class="carousel-item">
+        <!-- <img src="https://source.unsplash.com/1600x600/?cityscape,travel" class="d-block w-100" alt="Urban Adventures" /> -->
+        <img src="{{ url_for('static', filename='desert_camels.jpg') }}">
+        <div class="carousel-caption d-none d-md-block text-start">
+          <h5>Desert Adventures</h5>
+          <p>Experience the magic of desert landscapes with stunning unes and unique wildlife.</p>
+        </div>
+      </div>
+    
   </div>
+
   <button class="carousel-control-prev" type="button" data-bs-target="#tourismCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </button>
