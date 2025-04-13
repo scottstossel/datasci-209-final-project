@@ -137,23 +137,37 @@
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" href="/">Global Tourism Insights</a>
-    <div class="collapse navbar-collapse justify-content-end">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="/tourism-overview">Tourism Trends</a></li>
-        <li class="nav-item"><a class="nav-link" href="/direct-flights">Direct Flight Impact</a></li>
-        <li class="nav-item"><a class="nav-link" href="/currency">Currency Strength Impact</a></li>
-      </ul>
+    <div class="container">
+      <a class="navbar-brand" href="/">Global Tourism Insights</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="/tourism-overview">Tourism Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="/direct-flights">Direct Flights Impact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/currency">Currency Strength Impact</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+
+<!-- TOURISM OVERVIEW SECTION -->
+<section class="container my-5">
+    <h1 class="section-title text-center">🌍 Tourism Overview</h1>
+    <p class="lead text-center">Explore nearly three decades of global tourism trends, including shifts from the COVID-19 pandemic and emerging recovery patterns.</p>
+  
+    <div class="overview-container">
+      <!-- Your interactive chart or image goes here -->
+      <div id="tourism-chart"></div>
+      <p class="mt-4">
+        This visualization highlights international tourist arrivals from 1994 to 2022. Use the slider below to explore year-over-year changes, identifying global growth, regional variation, and significant global events such as the COVID-19 pandemic.
+      </p>
+    </div>
+  </section>
 
 <!-- TABLEAU VIZ SECTION -->
 <div class="tableauPlaceholder" id="viz1744567733873" style="position: relative">
-    <div style="margin-top: 2rem;">
-        <h3 class="text-center mb-4">Tourism Trends</h3>
-    </div>
     <noscript>
         <a href="#">
             <img alt="International Arrivals in 2022" src="https://public.tableau.com/static/images/DA/DATASCI209TouristArrivalsWorldMapv1/Sheet2/1_rss.png" style="border: none" />
