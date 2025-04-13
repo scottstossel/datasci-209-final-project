@@ -13,6 +13,8 @@
       --text-dark: #e9ecef;  
       --footer-bg: #1f1f1f;
       --footer-link: #adb5bd;
+      --featured-light: #f9fafb;
+      --featured-dark: #1a1a1a;
     }
     body {
       background-color: var(--bg-light);
@@ -88,6 +90,12 @@
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
+      background-color: var(--featured-light);
+      transition: background-color 0.3s;
+      padding: 2rem 1rem;
+    }
+    body.dark-mode #insightCards {
+      background-color: var(--featured-dark);
     }
     .col {
       flex: 1 1 300px;
