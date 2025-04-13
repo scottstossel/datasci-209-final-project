@@ -58,6 +58,41 @@
     .card-footer a:hover {
       text-decoration: underline;
     }
+
+    /* Update layout for featured cards to fix vertical text overflow */
+    #insightCards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .col {
+      flex: 1 1 300px;
+      max-width: 350px;
+    }
+    .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-text {
+      flex-grow: 1;
+      display: block;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
   </style>
 </head>
 <body>
