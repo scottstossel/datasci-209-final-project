@@ -226,6 +226,9 @@
       transform: scale(1.05);
       color: #ffffff;
     }
+    .site-footer nav a[href="/contact"]::before {
+      content: "📬 ";
+    }
     .site-footer nav a[href="/tourism-overview"]::before {
       content: "🌍 ";
     }
@@ -259,6 +262,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {% if request.path == '/currency' %}active{% endif %}" href="/currency">Currency Strength Impact</a>
+        </li>          
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/contact' %}active{% endif %}" href="/contact">Contact Us</a>
         </li>
       </ul>
     </div>
@@ -345,6 +351,7 @@
     <a href="/tourism-overview">Tourism Trends</a>
     <a href="/direct-flights">Direct Flight Impact</a>
     <a href="/currency">Currency Strength Impact</a>
+    <a href="/contact">Contact Us</a>
   </nav>
 </footer>
 
