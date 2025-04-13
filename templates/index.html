@@ -122,7 +122,44 @@
       word-wrap: break-word;
       word-break: break-word;
     }
-    
+    /* Footer section styles */
+    .footer-cta {
+      background-color: #3366ff;
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .footer-cta h4 {
+      font-weight: 700;
+    }
+    .footer-cta p {
+      font-size: 1.1rem;
+    }
+    .footer-cta .btn {
+      margin-top: 1rem;
+      font-weight: 500;
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+    }
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .site-footer nav {
+      margin-top: 0.5rem;
+    }
+    .site-footer nav a {
+      color: var(--footer-link);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .site-footer nav a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -301,6 +338,7 @@
     container.appendChild(col);
   });
 </script>
+
 <!-- Dark mode toggle script -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -314,7 +352,5 @@
     });
   });
 </script>
-
-
 </body>
 </html>
