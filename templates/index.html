@@ -62,7 +62,6 @@
 </head>
 <body>
 
-
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
@@ -86,53 +85,52 @@
   </div>
 </nav>
 
-<!-- CAROUSEL -->
-<div id="tourismCarousel" class="carousel slide" data-bs-ride="carousel">
+<!-- HERO CAROUSEL SECTION -->
+<div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000">
   <div class="carousel-inner">
     <div class="carousel-item active">
-        <img src="{{ url_for('static', filename='green_mountains.jpg') }}" class="d-block w-100" alt="Mountain Retreats">
-        <div class="carousel-caption d-none d-md-block text-start">
-            <h5>Mountain Retreats</h5>
-            <p>Explore lush green mountains with winding rivers and peaceful valleys.</p>
-        </div>
+      <img src="{{ url_for('static', filename='images/coastal_waterfall.jpg') }}" class="d-block w-100" alt="Coastal Escapes">
+      <div class="carousel-caption text-start text-white">
+        <h5>Coastal Escapes</h5>
+        <p>Discover breathtaking coastal landscapes with pristine beaches and dramatic cliffs.</p>
+      </div>
     </div>
     <div class="carousel-item">
-        <img src="{{ url_for('static', filename='coastal_waterfall.jpg') }}"class="d-block w-100" alt="Beach Destinations">
-        <div class="carousel-caption d-none d-md-block text-start">
-            <h5>Beach Destinations</h5>
-            <p>Discover tropical beaches with turquoise waters and soft white sands.</p>
-        </div>
+      <img src="{{ url_for('static', filename='images/snow_mountains.jpg') }}" class="d-block w-100" alt="Alpine Wonders">
+      <div class="carousel-caption text-start text-white">
+        <h5>Alpine Wonders</h5>
+        <p>Witness the majesty of snow-capped mountain ranges and breathtaking vistas.</p>
+      </div>
     </div>
     <div class="carousel-item">
-        <img src="{{ url_for('static', filename='mountain_roadtrip.jpg') }}" class="d-block w-100" alt="Road Trip Journeys">
-        <div class="carousel-caption d-none d-md-block text-start">
-            <h5>Road Trip Journeys</h5>
-            <p>Embark on unforgettable road trips through dramatic mountain landscapes.</p>
-          </div>
-        </div>
+      <img src="{{ url_for('static', filename='images/green_mountains.jpg') }}" class="d-block w-100" alt="Mountain Retreats">
+      <div class="carousel-caption text-start text-white">
+        <h5>Mountain Retreats</h5>
+        <p>Explore lush green mountains with winding rivers and peaceful valleys.</p>
+      </div>
     </div>
     <div class="carousel-item">
-        <img src="{{ url_for('static', filename='snow_mountains.jpg') }}" class="d-block w-100" alt="Alpine Wonders">
-        <div class="carousel-caption d-none d-md-block text-start">
-            <h5>Alpine Wonders</h5>
-            <p>Witness the majesty of snow-capped mountain ranges and breathtaking vistas.</p>
-        </div>
+      <img src="{{ url_for('static', filename='images/mountain_roadtrip.jpg') }}" class="d-block w-100" alt="Alpine Wonders">
+      <div class="carousel-caption text-start text-white">
+          <h5>Road Trip Journeys</h5>
+          <p>Embark on unforgettable road trips through dramatic mountain landscapes.</p>
+      </div>
     </div>
     <div class="carousel-item">
-        <img src="{{ url_for('static', filename='desert_camels.jpg') }}">
-        <div class="carousel-caption d-none d-md-block text-start">
-          <h5>Desert Adventures</h5>
-          <p>Experience the magic of desert landscapes with stunning unes and unique wildlife.</p>
-        </div>
+      <img src="{{ url_for('static', filename='images/desert_camels.jpg') }}" class="d-block w-100" alt="Desert Adventures">
+      <div class="carousel-caption text-start text-white">
+        <h5>Desert Adventures</h5>
+        <p>Experience the magic of desert landscapes with stunning dunes and unique wildlife.</p>
+      </div>
     </div>
   </div>
-
-  <button class="carousel-control-prev" type="button" data-bs-target="#tourismCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#tourismCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
+  </div>
 </div>
 
 <!-- HERO SECTION -->
@@ -157,7 +155,7 @@
     <div class="row g-4">
       <div class="col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="{{ url_for('static', filename='arrivals_by_year.jpg') }}" class="card-img-top" alt="Tourism Overview">
+          <img src="{{ url_for('static', filename='images/arrivals_by_year.jpg') }}" class="card-img-top" alt="Tourism Overview">
           <div class="card-body">
             <h5 class="card-title">Global Tourism Overview (1994–2022)</h5>
             <p class="card-text">Explore how global tourism has evolved over nearly three decades, including the dramatic impact of the COVID-19 pandemic and the ongoing recovery.</p>
@@ -170,7 +168,7 @@
 
       <div class="col-md-6 col-lg-4">
         <div class="card h-100">
-          <img src="{{ url_for('static', filename='arrivals_map_2019.jpg') }}" class="card-img-top" alt="International Arrivals Distribution">
+          <img src="{{ url_for('static', filename='images/arrivals_map_2019.jpg') }}" class="card-img-top" alt="International Arrivals Distribution">
           <div class="card-body">
             <h5 class="card-title">International Arrivals Distribution</h5>
             <p class="card-text">Visualize how international tourism is distributed globally, with interactive maps showing visitor numbers by country and region.</p>
