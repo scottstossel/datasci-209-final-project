@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Global Tourism Insights</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #212529;
+      --bg-dark: #121212;
+      --text-dark: #e9ecef;  
+      --footer-bg: #1f1f1f;
+      --footer-link: #adb5bd;
+      --featured-light: #f9fafb;
+      --featured-dark: #1a1a1a;
+      --highlight-glow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .hero-section {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .btn-custom {
+      margin: 0.5rem;
+    }
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+      font-family: Arial, sans-serif;
+    }
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    #darkModeToggle {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 1050;
+      background-color: transparent;
+      color: var(--text-light);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    #darkModeToggle:hover {
+      transform: rotate(20deg) scale(1.1);
+    }
+    body.dark-mode #darkModeToggle {
+      color: var(--text-dark);
+    }
+    #scrollToTop {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 1040;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 50%;  
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.25rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, opacity 0.3s;
+    }
+    #scrollToTop.show {
+      display: flex;
+      opacity: 1;
+    }
+    #scrollToTop.hide {
+      opacity: 0;
+    }
+    #scrollToTop:hover {
+      background-color: #084298;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .about-container {
+      background-color: var(--bg-light);
+      border-radius: 0.5rem;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode .about-container {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    }
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode .site-footer {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    .site-footer nav {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .site-footer nav a {
+      color: #adb5bd;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    .site-footer nav a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="/">Global Tourism Insights</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="/tourism-overview">Tourism Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/direct-flights">Direct Flights Impact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/currency">Currency Strength Impact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ABOUT US SECTION -->
+<section class="container my-5">
+  <h1 class="section-title text-center">👥 About Us</h1>
+  <div class="about-container">
+    <p>
+      Global Tourism Insights was founded with a mission to make tourism trends more transparent, accessible, and actionable. Through intuitive visualizations and in-depth analysis, we help travelers, researchers, and policymakers better understand how the world moves.
+    </p>
+    <p>
+      Our team blends expertise from data science, economics, and the travel industry to produce insights that drive smarter decisions. Whether you’re planning your next adventure, building tourism strategy, or studying international patterns, our platform provides the clarity you need.
+    </p>
+    <p>
+      We are proud to be data-first, globally inclusive, and always user-centered. Have ideas for collaboration or want to contribute? Head over to our <a href="/contact">Contact</a> page.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2025 Global Tourism Insights. All rights reserved.</p>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/contact">Contact</a>
+    <a href="/about">About Us</a>
+  </nav>
+</footer>
+
+<!-- Dark mode toggle script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleButton = document.createElement('button');
+      toggleButton.id = 'darkModeToggle';
+      toggleButton.innerHTML = '🌙 / ☀️';
+      document.body.appendChild(toggleButton);
+      
+      // Scroll Script Section 
+      const scrollToTop = document.createElement('button');
+      scrollToTop.id = 'scrollToTop';
+      scrollToTop.innerHTML = '↑';
+      document.body.appendChild(scrollToTop);
+  
+      toggleButton.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        toggleButton.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      });
+  
+      scrollToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          scrollToTop.classList.add('show');
+          scrollToTop.classList.remove('hide');
+        } else {
+          scrollToTop.classList.remove('show');
+          scrollToTop.classList.add('hide');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
