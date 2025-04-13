@@ -13,8 +13,25 @@
       background-color: var(--bs-body-bg);
       color: var(--bs-body-color);
     }
-    .navbar-brand {
-      font-weight: bold;
+    .hero-carousel {
+      position: relative;
+    }
+    .carousel-inner img {
+      height: 600px;
+      object-fit: cover;
+    }
+    .carousel-caption {
+      bottom: 3rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+    .carousel-caption h5 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .carousel-caption p {
+      font-size: 1.2rem;
     }
     .hero-section {
       text-align: center;
@@ -25,21 +42,6 @@
     }
     .btn-custom {
       margin: 0.5rem;
-    }
-    .carousel-caption h5 {
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    .carousel-caption p {
-      font-size: 1.2rem;
-    }
-    .carousel-inner {
-    height: 600px;
-    }
-    .carousel-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     }
     .featured-section {
       background-color: #f9fafb;
@@ -59,6 +61,7 @@
   </style>
 </head>
 <body>
+
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
