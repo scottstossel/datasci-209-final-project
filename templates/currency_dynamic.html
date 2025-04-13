@@ -13,7 +13,9 @@
       width: 100%;
       display: flex;
     }
-
+    .btn-custom {
+      margin: 0.5rem;
+    }
     #vis.vega-embed details,
     #vis.vega-embed details summary {
       position: relative;
@@ -39,6 +41,7 @@
   </div>
 </nav>
 
+<!-- Altair/Vega Section -->
   <div id="vis"></div>
   <script>
     (function(vegaEmbed) {
@@ -57,7 +60,6 @@
       vegaEmbed("#vis", spec, embedOpt)
         .catch(error => showError(el, error));
     })(vegaEmbed);
-
   </script>
 
 <!-- FOOTER -->

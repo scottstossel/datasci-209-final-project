@@ -12,7 +12,6 @@ def home():
 @app.route('/direct-flights')
 def direct_flights():
     return render_template('direct-flights.html')
-    
 @app.route('/currency')
 def currency():
     # Sample data
@@ -35,5 +34,9 @@ def currency():
     chart_json = chart.to_json()
 
     return render_template('currency_dynamic.html', chart_spec=chart_json)
+@app.route('/tourism-overview')
+def tourism_overview():
+    return render_template('tourism_overview.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
