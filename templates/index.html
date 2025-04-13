@@ -154,7 +154,7 @@
       word-wrap: break-word;
       word-break: break-word;
     }
-    
+
     /* Footer section styles */
     .footer-cta {
       background-color: #3366ff;
@@ -197,6 +197,21 @@
     }
     .site-footer nav a:hover {
       text-decoration: underline;
+    }
+    .site-footer nav {
+      margin-top: 1rem;
+    }
+    .site-footer nav a[href="/tourism-overview"]::before {
+      content: "🌍 ";
+    }
+    .site-footer nav a[href="/direct-flights"]::before {
+      content: "✈️ ";
+    }
+    .site-footer nav a[href="/currency"]::before {
+      content: "💱 ";
+    }
+    .site-footer nav a[href="/"]::before {
+      content: "🏠 ";
     }
   </style>
 </head>
@@ -389,6 +404,18 @@
       document.body.classList.toggle('dark-mode');
       toggleButton.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
+
+  const footer = document.querySelector('.site-footer');
+    if (footer) {
+      const nav = document.createElement('nav');
+      nav.innerHTML = `
+        <a href="/">Home</a>
+        <a href="/tourism-overview">Tourism Overview</a>
+        <a href="/direct-flights">Direct Flights Impact</a>
+        <a href="/currency">Currency Strength Impact</a>
+      `;
+      footer.appendChild(nav);
+    }
   });
 </script>
 </body>
