@@ -52,16 +52,23 @@
       background-color: #0d6efd;
       color: white;
       border: none;
-      border-radius: 50%;
+      border-radius: 50%;  
       width: 2.5rem;
       height: 2.5rem;
       font-size: 1.25rem;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, opacity 0.3s;
+    }
+    #scrollToTop.show {
+      display: flex;
+      opacity: 1;
+    }
+    #scrollToTop.hide {
+      opacity: 0;
     }
     #scrollToTop:hover {
       background-color: #084298;
@@ -421,7 +428,8 @@
     toggleButton.id = 'darkModeToggle';
     toggleButton.innerHTML = '🌙 / ☀️';
     document.body.appendChild(toggleButton);
-
+    
+    // Scroll Script Section 
     const scrollToTop = document.createElement('button');
     scrollToTop.id = 'scrollToTop';
     scrollToTop.innerHTML = '↑';
@@ -434,6 +442,16 @@
 
     scrollToTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        scrollToTop.classList.add('show');
+        scrollToTop.classList.remove('hide');
+      } else {
+        scrollToTop.classList.remove('show');
+        scrollToTop.classList.add('hide');
+      }
     });
   });
 </script>
