@@ -35,9 +35,11 @@
       color: var(--text-light);
       border: none;
       font-size: 1.5rem;
-      /* border-radius: 4px;
-      padding: 0.5rem 1rem; */
       cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    #darkModeToggle:hover {
+      transform: rotate(20deg) scale(1.1);
     }
     body.dark-mode #darkModeToggle {
       color: var(--text-dark);
@@ -152,6 +154,7 @@
       word-wrap: break-word;
       word-break: break-word;
     }
+    
     /* Footer section styles */
     .footer-cta {
       background-color: #3366ff;
