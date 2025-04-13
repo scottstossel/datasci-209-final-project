@@ -151,73 +151,11 @@
 <section class="featured-section">
   <div class="container">
     <h3 class="text-center mb-5">Featured Insights</h3>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="{{ url_for('static', filename='images/arrivals_by_year.jpg') }}" class="card-img-top" alt="Tourism Overview">
-          <div class="card-body">
-            <h5 class="card-title">Global Tourism Overview (1994–2022)</h5>
-            <p class="card-text">Explore how global tourism has evolved over nearly three decades, including the dramatic impact of the COVID-19 pandemic and the ongoing recovery.</p>
-          </div>
-          <div class="card-footer bg-transparent border-top">
-            <a href="/tourism-overview">Explore the data &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <img src="{{ url_for('static', filename='images/arrivals_map_2019.jpg') }}" class="card-img-top" alt="International Arrivals Distribution">
-          <div class="card-body">
-            <h5 class="card-title">International Arrivals Distribution</h5>
-            <p class="card-text">Visualize how international tourism is distributed globally, with interactive maps showing visitor numbers by country and region.</p>
-          </div>
-          <div class="card-footer bg-transparent border-top">
-            <a href="/tourism-overview">Explore the map &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Direct Flight Impact</h5>
-            <p class="card-text">Countries with higher growth in direct flight connections tend to experience greater increases in tourism arrivals, suggesting that expanding air connectivity can boost tourism.</p>
-          </div>
-          <div class="card-footer bg-transparent border-top">
-            <a href="/direct-flights">Learn more &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">COVID-19 Recovery</h5>
-            <p class="card-text">The data shows a gradual recovery beginning in 2021 and continuing into 2022, though arrivals remained well below pre-pandemic levels with significant regional variations.</p>
-          </div>
-          <div class="card-footer bg-transparent border-top">
-            <a href="/tourism-overview">See recovery patterns &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Currency Strength Effects</h5>
-            <p class="card-text">The relationship between currency strength and tourism is complex. While weaker currencies can attract visitors seeking value, they may also signal economic instability.</p>
-          </div>
-          <div class="card-footer bg-transparent border-top">
-            <a href="/currency">Analyze currency impact &rarr;</a>
-          </div>
-        </div>
-      </div>
-
+    <div class="row g-4" id="insightCards">
+      <!-- Cards will be dynamically loaded -->
     </div>
   </div>
 </section>
-
 
 <!-- FOOTER -->
 <footer class="bg-dark text-white text-center py-3">
@@ -228,5 +166,75 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const insights = [
+    {
+      title: "Global Tourism Overview (1994–2022)",
+      text: "Explore how global tourism has evolved over nearly three decades, including the dramatic impact of the COVID-19 pandemic and the ongoing recovery.",
+      image: "arrivals_by_year.jpg",
+      link: "/tourism-overview",
+      linkText: "Explore the data →"
+    },
+    {
+      title: "International Arrivals Distribution",
+      text: "Visualize how international tourism is distributed globally, with interactive maps showing visitor numbers by country and region.",
+      image: "arrivals_map_2019.jpg",
+      link: "/tourism-overview",
+      linkText: "Explore the map →"
+    },
+    {
+      title: "Direct Flight Impact",
+      text: "Countries with higher growth in direct flight connections tend to experience greater increases in tourism arrivals, suggesting that expanding air connectivity can boost tourism.",
+      image: null,
+      link: "/direct-flights",
+      linkText: "Learn more →"
+    },
+    {
+      title: "COVID-19 Recovery",
+      text: "The data shows a gradual recovery beginning in 2021 and continuing into 2022, though arrivals remained well below pre-pandemic levels with significant regional variations.",
+      image: null,
+      link: "/tourism-overview",
+      linkText: "See recovery patterns →"
+    },
+    {
+      title: "Currency Strength Effects",
+      text: "The relationship between currency strength and tourism is complex. While weaker currencies can attract visitors seeking value, they may also signal economic instability.",
+      image: null,
+      link: "/currency",
+      linkText: "Analyze currency impact →"
+    }
+  ];
+
+  const container = document.getElementById("insightCards");
+
+  insights.forEach((insight) => {
+    const col = document.createElement("div");
+    col.className = "col-md-6 col-lg-4";
+
+    const card = document.createElement("div");
+    card.className = "card h-100";
+
+    if (insight.image) {
+      const img = document.createElement("img");
+      img.className = "card-img-top";
+      img.src = `/static/images/${insight.image}`;
+      img.alt = insight.title;
+      card.appendChild(img);
+    }
+
+    const body = document.createElement("div");
+    body.className = "card-body";
+    body.innerHTML = `<h5 class="card-title">${insight.title}</h5><p class="card-text">${insight.text}</p>`;
+    card.appendChild(body);
+
+    const footer = document.createElement("div");
+    footer.className = "card-footer bg-transparent border-top";
+    footer.innerHTML = `<a href="${insight.link}">${insight.linkText}</a>`;
+    card.appendChild(footer);
+
+    col.appendChild(card);
+    container.appendChild(col);
+  });
+</script>
 </body>
 </html>
