@@ -185,13 +185,6 @@
       margin-bottom: 0.5rem;
       font-size: 0.95rem;
     }
-    .site-footer nav {  
-      margin-top: 0.5rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
     .site-footer nav a {
       color: var(--footer-link);
       /* margin: 0 1rem; */
@@ -201,9 +194,6 @@
     }
     .site-footer nav a:hover {
       text-decoration: underline;
-    }
-    .site-footer nav {
-      margin-top: 1rem;
     }
     .site-footer nav a[href="/tourism-overview"]::before {
       content: "🌍 ";
@@ -317,10 +307,14 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-3">
-  <div class="container">
-    <p class="mb-0">© 2025 Global Tourism Insights. All rights reserved.</p>
-  </div>
+<footer class="site-footer">
+  <p>© 2025 Global Tourism Insights. All rights reserved.</p>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/tourism-overview">Tourism Overview</a>
+    <a href="/direct-flights">Direct Flights Impact</a>
+    <a href="/currency">Currency Strength Impact</a>
+  </nav>
 </footer>
 
 <!-- Bootstrap JS -->
@@ -408,18 +402,6 @@
       document.body.classList.toggle('dark-mode');
       toggleButton.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
-
-  const footer = document.querySelector('.site-footer');
-    if (footer) {
-      const nav = document.createElement('nav');
-      nav.innerHTML = `
-        <a href="/">Home</a>
-        <a href="/tourism-overview">Tourism Overview</a>
-        <a href="/direct-flights">Direct Flights Impact</a>
-        <a href="/currency">Currency Strength Impact</a>
-      `;
-      footer.appendChild(nav);
-    }
   });
 </script>
 </body>
