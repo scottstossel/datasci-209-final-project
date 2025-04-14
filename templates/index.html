@@ -395,8 +395,8 @@
       linkText: "Analyze currency impact →"
     }
   ];
-  const BASE = "/global_tourism_insights/static/images/";
 
+  const BASE = "{{ url_for('static', filename='images/') }}";
   const container = document.getElementById("insightCards");
 
   insights.forEach((insight) => {
