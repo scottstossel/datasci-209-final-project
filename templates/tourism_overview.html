@@ -83,6 +83,13 @@
     #scrollToTop:hover {
       background-color: #084298;
     }
+    .tableauPlaceholder object {
+      width: 100% !important;
+      max-width: 100%;
+      max-height: 100%;
+      /* height: auto !important; */
+    }
+
 
     /* Destination Section */
     .destination-container {
@@ -223,32 +230,34 @@
         This visualization highlights international tourist arrivals from 1994 to 2022. Use the slider below to explore year-over-year changes, identifying global growth, regional variation, and significant global events such as the COVID-19 pandemic.
       </p>
     </div>
-  </section>
+</section>
 
-<!-- TABLEAU VIZ SECTION -->
-<div class="tableauPlaceholder" id="viz1744567733873" style="position: relative">
-    <h3 style="text-align: center;">International Arrivals Map</h3>
+<!-- TOURISM TRENDS CHART (Tableau Embed) -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">📈 International Tourism Arrivals</h2>
+  <div class="tableauPlaceholder" id="viz1744567733873" style="position: relative; margin-bottom: 3rem;">
     <noscript>
-        <a href="#">
-            <img alt="International Arrivals in 2022" src="https://public.tableau.com/static/images/DA/DATASCI209TouristArrivalsWorldMapv1/Sheet2/1_rss.png" style="border: none" />
-        </a>
+      <a href="#">
+        <img alt="Tourism Trends" src="https://public.tableau.com/static/images/DA/DATASCI209TouristArrivalsWorldMapv1/Sheet2/1_rss.png" style="border: none" />
+      </a>
     </noscript>
     <object class="tableauViz" style="display: none;">
-        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-        <param name="embed_code_version" value="3" />
-        <param name="site_root" value="" />
-        <param name="name" value="DATASCI209TouristArrivalsWorldMapv1/Sheet2" />
-        <param name="tabs" value="no" />
-        <param name="toolbar" value="yes" />
-        <param name="static_image" value="https://public.tableau.com/static/images/DA/DATASCI209TouristArrivalsWorldMapv1/Sheet2/1.png" />
-        <param name="animate_transition" value="yes" />
-        <param name="display_static_image" value="yes" />
-        <param name="display_spinner" value="yes" />
-        <param name="display_overlay" value="yes" />
-        <param name="display_count" value="yes" />
-        <param name="language" value="en-US" />
+      <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+      <param name="embed_code_version" value="3" />
+      <param name="site_root" value="" />
+      <param name="name" value="DATASCI209TouristArrivalsWorldMapv1/Sheet2" />
+      <param name="tabs" value="no" />
+      <param name="toolbar" value="yes" />
+      <param name="static_image" value="https://public.tableau.com/static/images/DA/DATASCI209TouristArrivalsWorldMapv1/Sheet2/1.png" />
+      <param name="animate_transition" value="yes" />
+      <param name="display_static_image" value="yes" />
+      <param name="display_spinner" value="yes" />
+      <param name="display_overlay" value="yes" />
+      <param name="display_count" value="yes" />
+      <param name="language" value="en-US" />
     </object>
-</div>
+  </div>
+</section>
 
 <!-- Tableau JS -->
 <script type="text/javascript">
