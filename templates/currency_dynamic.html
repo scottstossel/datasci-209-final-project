@@ -63,13 +63,13 @@
       font-weight: 700;
       margin-bottom: 2rem;
     }
-    .destination-container, .impact-cards {
+    .destination-container, .impact-cards, .insight-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content: center;
     }
-    .destination-card, .impact-card {
+    .destination-card, .impact-card, .insight-card {
       background-color: var(--bg-light);
       color: var(--text-light);
       border-radius: 12px;
@@ -85,7 +85,7 @@
       object-fit: cover;
       border-radius: 8px;
     }
-    .destination-card:hover, .impact-card:hover {
+    .destination-card:hover, .impact-card:hover, .insight-card:hover{
       transform: scale(1.03);
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
@@ -103,6 +103,7 @@
     }
     body.dark-mode .destination-card,
     body.dark-mode .impact-card,
+    body.dark-mode .insight-card,
     body.dark-mode .analysis-box {
       background-color: #1f1f1f;
       color: var(--text-dark);
@@ -316,6 +317,28 @@ A positive correlation (0.42) suggests that as a country's currency weakens agai
   </div>
 </section>
 
+<!-- Key Insight Section -->
+<section class="section">
+  <h2 class="section-title">🔍 Key Insights from Currency Analysis</h2>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h5>Regional Variations</h5>
+      <p>The impact of currency strength on tourism varies significantly by region. Established tourism destinations in stable economies tend to benefit more from currency weakening, while developing destinations may be more negatively affected by instability perceptions.</p>
+    </div>
+    <div class="insight-card">
+      <h5>Multiple Influencing Factors</h5>
+      <p>Currency strength is one of many factors. Visa rules, marketing, safety, and transportation infrastructure all shape destination choices alongside financial factors.</p>
+    </div>
+    <div class="insight-card">
+      <h5>Implications for Tourism Boards</h5>
+      <p>Tourism boards in weaker currency countries can promote affordability. However, they must also combat negative perceptions with campaigns ensuring safety and quality infrastructure.</p>
+    </div>
+    <div class="insight-card">
+      <h5>Opportunities for Travelers</h5>
+      <p>Travelers aware of currency shifts can plan smart, visiting value-rich destinations with weak currencies and high service quality, maximizing experience per dollar spent.</p>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer class="bg-dark text-white text-center py-3 mt-auto">
