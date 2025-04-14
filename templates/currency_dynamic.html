@@ -87,23 +87,34 @@
     #scrollToTop:hover {
       background-color: #084298;
     }
-    .site-footer nav {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .site-footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
     }
     .site-footer nav a {
-      color: #adb5bd;
+      color: var(--footer-link);
+      /* margin: 0 1rem; */
       text-decoration: none;
       font-weight: 400;
       font-size: 0.9rem;
-      transition: color 0.3s ease;
     }
     .site-footer nav a:hover {
+      text-decoration: underline;  
+      transform: scale(1.05);
       color: #ffffff;
-      text-decoration: underline;
+    }
+    .site-footer nav a[href="/contact"]::before {
+      content: "📬 ";
+    }
+    .site-footer nav a[href="/"]::before {
+      content: "🏠 ";
     }
   </style>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
