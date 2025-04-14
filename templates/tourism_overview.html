@@ -166,7 +166,11 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       flex: 1 1 300px;
       max-width: 500px;
-      transition: background-color 0.3s, color 0.3s;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .insight-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     }
     body.dark-mode .insight-card {
       background-color: #1f1f1f;
@@ -177,6 +181,20 @@
       margin-bottom: 0.5rem;
     }
 
+    .viz-placeholder {
+      background: #f0f0f0;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 12px;
+      margin: 3rem auto;
+      max-width: 960px;
+      border: 1px dashed #ccc;
+    }
+    body.dark-mode .viz-placeholder {
+      background: #2a2a2a;
+      color: var(--text-dark);
+      border-color: #555;
+    }
     /* Footer section styles */
     .footer-cta {
       background-color: #3366ff;
@@ -268,6 +286,13 @@
       </p>
     </div>
 </section>
+
+<!-- VIZ PLACEHOLDER -->
+<section class="viz-placeholder">
+  <h2>📈 Global Tourism Arrivals (1995–2022)</h2>
+  <p>This section will showcase the line chart of global tourism arrivals over time. Data will illustrate the steady rise, COVID-19 dip, and early signs of recovery.</p>
+</section>
+
 
 <!-- TOURISM TRENDS CHART (Tableau Embed) -->
 <section class="container my-5">
