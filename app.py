@@ -5,7 +5,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-app.config['SERVER_NAME'] = 'localhost:5001'
+app.config['SERVER_NAME'] = 'localhost:5007'
 
 @app.route('/')
 def home():
@@ -26,4 +26,4 @@ def contact():
 def about():
     return render_template('about.html')
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
