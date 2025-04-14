@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Us | Global Tourism Insights</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" />
   <style>
     :root {
       --bg-light: #ffffff;
@@ -131,13 +132,14 @@
     .site-footer nav a:hover {
       color: #ffffff;
       text-decoration: underline;
-    }
+    }    
     .team-section {
       margin-top: 3rem;
     }
     .team-member {
       text-align: center;
       margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .team-member img {
       border-radius: 50%;
@@ -145,6 +147,14 @@
       height: 120px;
       object-fit: cover;
       margin-bottom: 0.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+    .team-member:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
     .site-footer nav a[href="/about"]::before {
       content: "👥 ";
@@ -197,11 +207,13 @@
             <img src="https://www.ischool.berkeley.edu/sites/default/files/styles/profile_photo/public/profile_pictures/img_1045.jpeg?h=ba7518ff&itok=0EguUetd" alt="Team Member 1">
             <h5 class="mt-2">Perry Gabriel</h5>
             <p>Founder & Data Strategist</p>
+            <a href="https://www.linkedin.com/in/perrygabriel" target="_blank">LinkedIn</a>
           </div>
           <div class="col-md-4 team-member">
             <img src="https://www.ischool.berkeley.edu/sites/default/files/styles/profile_photo/public/2024-11/beatrice_filart_headshot.jpg?h=f2657a54&itok=1dFPe6Be" alt="Team Member 2">
             <h5 class="mt-2">Beatrice Filart</h5>
             <p>Lead Analyst & Visual Designer</p>
+            <a href="https://www.linkedin.com/in/beatrice-alessandra-100/" target="_blank">LinkedIn</a>
           </div>
           <div class="col-md-4 team-member">
             <img src="https://ca.slack-edge.com/T0WA5NWKG-U07D2BV4RGE-dd84042be7e5-512" alt="Team Member 3">
@@ -217,6 +229,7 @@
             <img src="https://ca.slack-edge.com/T0WA5NWKG-U07CRLL6URX-71b2b49b6045-512" alt="Team Member 5">
             <h5 class="mt-2">Scott Stossel</h5>
             <p>Developer & Technical Lead</p>
+            <a href="https://www.linkedin.com/in/scott-stossel" target="_blank">LinkedIn</a>
           </div>
         </div>
       </div>
