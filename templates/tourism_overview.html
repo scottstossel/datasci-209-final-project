@@ -90,7 +90,6 @@
       /* height: auto !important; */
     }
 
-
     /* Destination Section */
     .destination-container {
       display: flex;
@@ -138,6 +137,44 @@
     }
     body.dark-mode .destination-card img {
       filter: brightness(0.85) contrast(1.1);
+    }
+
+    /* Insights Section  */
+    .insight-section {
+      background-color: var(--featured-light);
+      padding: 4rem 1rem;
+    }
+    body.dark-mode .insight-section {
+      background-color: var(--featured-dark);
+    }
+    .insight-section h2 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .insight-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .insight-card {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      flex: 1 1 300px;
+      max-width: 500px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode .insight-card {
+      background-color: #1f1f1f;
+      color: var(--text-dark);
+    }
+    .insight-card h5 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
 
     /* Footer section styles */
@@ -297,6 +334,31 @@
     </div>
   </div>
   </section>
+
+<!-- KEY INSIGHTS SECTION -->
+<section class="insight-section">
+  <div class="container">
+    <h2>Key Insights</h2>
+    <div class="insight-cards">
+      <div class="insight-card">
+        <h5>Long-term Growth Trend</h5>
+        <p>Global tourism showed consistent growth from 1995 to 2019, with international arrivals more than doubling during this period. This reflects increasing global mobility, rising middle classes in developing countries, and the growing importance of tourism to the global economy.</p>
+      </div>
+      <div class="insight-card">
+        <h5>COVID-19 Impact</h5>
+        <p>The COVID-19 pandemic caused an unprecedented drop in global tourism in 2020, with arrivals falling by approximately 70% compared to 2019. This represents the largest disruption to global tourism in modern history, far exceeding previous crises like the 2008 financial crisis or the SARS outbreak.</p>
+      </div>
+      <div class="insight-card">
+        <h5>Recovery Patterns</h5>
+        <p>The data shows a gradual recovery beginning in 2021 and continuing into 2022, though arrivals remained well below pre-pandemic levels. The recovery has been uneven across regions, with some destinations recovering faster than others based on factors like vaccination rates and travel restrictions.</p>
+      </div>
+      <div class="insight-card">
+        <h5>Regional Variations</h5>
+        <p>The map visualization reveals significant regional variations in tourism arrivals. Europe and parts of Asia consistently receive the highest number of international visitors, while many regions in Africa and parts of South America receive fewer international tourists despite having significant tourism potential.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer class="bg-dark text-white text-center py-3 mt-auto">
