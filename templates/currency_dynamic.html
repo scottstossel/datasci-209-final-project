@@ -87,6 +87,24 @@
     #scrollToTop:hover {
       background-color: #084298;
     }
+    .site-footer nav {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .site-footer nav a {
+      color: #adb5bd;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    .site-footer nav a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
   </style>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
@@ -157,14 +175,13 @@ A positive correlation (0.42) suggests that as a country's currency weakens agai
   </script> -->
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-3">
-  <div class="container">
-    <p class="mb-0">© 2025 Global Tourism Insights. All rights reserved.</p>  
-    <nav>
-      <a href="/">Home</a>
-      <a href="/contact">Contact Us</a>
-    </nav>
-  </div>
+<footer class="site-footer">
+  <p>© 2025 Global Tourism Insights. All rights reserved.</p>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/contact">Contact</a>
+    <a href="/about">About Us</a>
+  </nav>
 </footer>
 
 <!-- Bootstrap JS -->
