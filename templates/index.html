@@ -374,7 +374,7 @@
       linkText: "Explore the map →"
     },
     {
-      title: "Direct Flight Impact",
+      title: "Direct Flights Impact",
       text: "Countries with higher growth in direct flight connections tend to experience greater increases in tourism arrivals, suggesting that expanding air connectivity can boost tourism.",
       image: null,
       link: "/direct-flights",
@@ -395,6 +395,7 @@
       linkText: "Analyze currency impact →"
     }
   ];
+  const BASE = "/global_tourism_insights/static/images/";
 
   const container = document.getElementById("insightCards");
 
@@ -408,7 +409,7 @@
     if (insight.image) {
       const img = document.createElement("img");
       img.className = "card-img-top";
-      img.src = `/static/images/${insight.image}`;
+      img.src = BASE + insight.image;
       img.alt = insight.title;
       card.appendChild(img);
     }
