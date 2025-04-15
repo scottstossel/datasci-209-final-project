@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tourism Trends | Global Tourism Insights</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #212529;
+      --bg-dark: #121212;
+      --text-dark: #e9ecef;  
+      --footer-bg: #1f1f1f;
+      --footer-link: #adb5bd;
+      --featured-light: #f9fafb;
+      --featured-dark: #1a1a1a;
+      --highlight-glow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
+    /* .navbar-brand {
+      font-weight: bold;
+    } */
+    .hero-section {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .btn-custom {
+      margin: 0.5rem;
+    }
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    #darkModeToggle {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 1050;
+      background-color: transparent;
+      color: var(--text-light);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    #darkModeToggle:hover {
+      transform: rotate(20deg) scale(1.1);
+    }
+    body.dark-mode #darkModeToggle {
+      color: var(--text-dark);
+    }
+    #scrollToTop {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 1040;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 50%;  
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.25rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, opacity 0.3s;
+    }
+    #scrollToTop.show {
+      display: flex;
+      opacity: 1;
+    }
+    #scrollToTop.hide {
+      opacity: 0;
+    }
+    #scrollToTop:hover {
+      background-color: #084298;
+    }
+    .tableauPlaceholder object {
+      width: 100% !important;
+      max-width: 100%;
+      max-height: 100%;
+      /* height: auto !important; */
+    }
+
+    /* Destination Section */
+
+    .destination-container {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2rem auto;
+      max-width: 1200px;
+    }
+    .destination-card {
+      background: var(--bg-light);
+      color: var(--text-light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 320px;
+      flex: 1 1 300px;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .destination-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .destination-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .destination-card:hover img {
+      transform: scale(1.05);
+    }
+    .destination-card .card-body {
+      padding: 1rem;
+    }
+    .destination-card h5 {
+      font-weight: 700;
+    }
+    .destination-card p {
+      margin-top: 0.5rem;
+    }
+    body.dark-mode .destination-card {
+      background-color: #1f1f1f;
+      color: var(--text-dark);
+    }
+    body.dark-mode .destination-card img {
+      filter: brightness(0.85) contrast(1.1);
+    }
+
+    /* Insights Section  */
+    .insight-section {
+      background-color: var(--featured-light);
+      padding: 4rem 1rem;
+    }
+    body.dark-mode .insight-section {
+      background-color: var(--featured-dark);
+    }
+    .insight-section h2 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .insight-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .insight-card {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      flex: 1 1 300px;
+      max-width: 500px;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .insight-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    body.dark-mode .insight-card {
+      background-color: #1f1f1f;
+      color: var(--text-dark);
+    }
+    .insight-card h5 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .viz-placeholder {
+      background: #eef4ff;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 12px;
+      margin: 3rem auto;
+      max-width: 960px;
+      border: 1px dashed #ccc;
+    }
+    body.dark-mode .viz-placeholder {
+      background: #2a2a2a;
+      color: var(--text-dark);
+      border-color: #555;
+    }
+    /* Footer section styles */
+    .footer-cta {
+      background-color: #3366ff;
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .footer-cta h4 {
+      font-weight: 700;
+    }
+    .footer-cta p {
+      font-size: 1.1rem;
+    }
+    .footer-cta .btn {
+      margin-top: 1rem;
+      font-weight: 500;
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+    }
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .site-footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .site-footer nav a {
+      color: var(--footer-link);
+      /* margin: 0 1rem; */
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+    .site-footer nav a:hover {
+      text-decoration: underline;  
+      /* transform: scale(1.05); */
+      color: #ffffff;
+    }
+    .site-footer nav a[href="/about"]::before {
+      content: "👥 ";
+    }
+    .site-footer nav a[href="/contact"]::before {
+      content: "📬 ";
+    }
+    .site-footer nav a[href="/"]::before {
+      content: "🏠 ";
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('index') }}">Global Tourism Insights</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/tourism-overview' %}active{% endif %}" href="{{ url_for('tourism') }}">Tourism Trends</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/direct-flights' %}active{% endif %}" href="{{ url_for('flights') }}">Direct Flights Impact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/currency' %}active{% endif %}" href="{{ url_for('currency') }}">Currency Strength Impact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- TOURISM OVERVIEW SECTION -->
+<section class="container my-5">
+    <h1 class="section-title text-center">🌍 Tourism Overview</h1>
+    <p class="lead text-center">Explore nearly three decades of global tourism trends, including shifts from the COVID-19 pandemic and emerging recovery patterns.</p>
+  
+    <div class="overview-container">
+      <!-- Your interactive chart or image goes here -->
+      <div id="tourism-chart"></div>
+      
+    </div>
+</section>
+
+<!-- VIZ PLACEHOLDER -->
+<section class="viz-placeholder">
+  <h2>📈 Global Tourism Arrivals (1995–2022)</h2>
+  <p class="mt-4">
+    This visualization highlights international tourist arrivals from 1994 to 2022. Use the slider below to explore year-over-year changes, identifying global growth, regional variation, and significant global events such as the COVID-19 pandemic.
+  </p>
+</section>
+
+
+<!-- TOURISM TRENDS CHART (Tableau Embed) -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">📈 International Tourism Arrivals</h2>
+  <div class="tableauPlaceholder" id="viz1744567733873" style="position: relative; margin-bottom: 3rem;">
+    <noscript>
+      <a href="#">
+        <img alt="Tourism Trends" src="https://public.tableau.com/static/images/DA/DATASCI209TouristArrivalsWorldMapv1/Sheet2/1_rss.png" style="border: none" />
+      </a>
+    </noscript>
+    <object class="tableauViz" style="display: none;">
+      <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+      <param name="embed_code_version" value="3" />
+      <param name="site_root" value="" />
+      <param name="name" value="DATASCI209TouristArrivalsWorldMapv1/Sheet2" />
+      <param name="tabs" value="no" />
+      <param name="toolbar" value="yes" />
+      <param name="static_image" value="https://public.tableau.com/static/images/DA/DATASCI209TouristArrivalsWorldMapv1/Sheet2/1.png" />
+      <param name="animate_transition" value="yes" />
+      <param name="display_static_image" value="yes" />
+      <param name="display_spinner" value="yes" />
+      <param name="display_overlay" value="yes" />
+      <param name="display_count" value="yes" />
+      <param name="language" value="en-US" />
+    </object>
+  </div>
+  <p>This interactive map shows international tourism arrivals by country. Countries with darker blue colors received more international visitors.
+    You can interact with the map by hovering over countries to see detailed visitor numbers, zooming in/out, and using the filters to explore different views of the data.</p>
+
+  <p class="text-center mt-4"></p>
+    Data Source: <a href="https://www.unwto.org/statistics" target="_blank" rel="noopener noreferrer">UNWTO Tourism Statistics</a>
+  </p>
+</section>
+
+<!-- Tableau JS -->
+<script type="text/javascript">
+  var divElement = document.getElementById('viz1744567733873');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+  var scriptElement = document.createElement('script');
+  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+<!-- TOURISM DESTINATIONS -->
+<section class="container text-center my-5">
+  <h1>🌍 Popular Tourism Destinations</h1>
+  <p class="lead">Explore trending travel experiences across landscapes and continents.</p>
+  <div class="destination-container">
+    <div class="destination-card">
+      <img src="{{ url_for('static', filename='images/coastal_waterfall.jpg') }}" alt="Coastal Escapes">
+      <div class="card-body">
+        <h5>Coastal Escapes</h5>
+        <p>Breathtaking coastal landscapes with pristine beaches and dramatic cliffs continue to be among the most sought-after tourism destinations worldwide.</p>
+      </div>
+    </div>
+    <div class="destination-card">
+      <img src="{{ url_for('static', filename='images/desert_camels.jpg') }}" alt="Desert Adventures">
+      <div class="card-body">
+        <h5>Desert Adventures</h5>
+        <p>Desert tourism has seen significant growth as travelers seek unique landscapes and cultural experiences in regions like North Africa and the Middle East.</p>
+      </div>
+    </div>
+    <div class="destination-card">
+      <img src="{{ url_for('static', filename='images/mountain_roadtrip.jpg') }}" alt="Road Trip Journeys">
+      <div class="card-body">
+        <h5>Road Trip Journeys</h5>
+        <p>Road trips through scenic landscapes have gained popularity, especially following the pandemic as travelers seek more independent and flexible travel options.</p>
+      </div>
+    </div>
+  </div>
+  </section>
+
+<!-- KEY INSIGHTS SECTION -->
+<section class="insight-section">
+  <div class="container">
+    <h2>Key Insights</h2>
+    <div class="insight-cards">
+      <div class="insight-card">
+        <h5>Long-term Growth Trend</h5>
+        <p>Global tourism showed consistent growth from 1995 to 2019, with international arrivals more than doubling during this period. This reflects increasing global mobility, rising middle classes in developing countries, and the growing importance of tourism to the global economy.</p>
+      </div>
+      <div class="insight-card">
+        <h5>COVID-19 Impact</h5>
+        <p>The COVID-19 pandemic caused an unprecedented drop in global tourism in 2020, with arrivals falling by approximately 70% compared to 2019. This represents the largest disruption to global tourism in modern history, far exceeding previous crises like the 2008 financial crisis or the SARS outbreak.</p>
+      </div>
+      <div class="insight-card">
+        <h5>Recovery Patterns</h5>
+        <p>The data shows a gradual recovery beginning in 2021 and continuing into 2022, though arrivals remained well below pre-pandemic levels. The recovery has been uneven across regions, with some destinations recovering faster than others based on factors like vaccination rates and travel restrictions.</p>
+      </div>
+      <div class="insight-card">
+        <h5>Regional Variations</h5>
+        <p>The map visualization reveals significant regional variations in tourism arrivals. Europe and parts of Asia consistently receive the highest number of international visitors, while many regions in Africa and parts of South America receive fewer international tourists despite having significant tourism potential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3 mt-auto">
+  <div class="container">
+    <p class="mb-0">© 2025 Global Tourism Insights. All rights reserved.</p>
+    <nav>
+      <a href="{{ url_for('index') }}"><span role="img" aria-label="Home">🏠</span> Home </a>  |  
+      <a href="{{ url_for('contact') }}"><span role="img" aria-label="Contact">📬</span> Contact </a> | 
+      <a href="{{ url_for('about') }}"><span role="img" aria-label="About">👥</span> About Us </a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Dark mode toggle script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleButton = document.createElement('button');
+      toggleButton.id = 'darkModeToggle';
+      toggleButton.innerHTML = '🌙 / ☀️';
+      document.body.appendChild(toggleButton);
+      
+      // Scroll Script Section 
+      const scrollToTop = document.createElement('button');
+      scrollToTop.id = 'scrollToTop';
+      scrollToTop.innerHTML = '↑';
+      document.body.appendChild(scrollToTop);
+  
+      toggleButton.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        toggleButton.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+      });
+  
+      scrollToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          scrollToTop.classList.add('show');
+          scrollToTop.classList.remove('hide');
+        } else {
+          scrollToTop.classList.remove('show');
+          scrollToTop.classList.add('hide');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
