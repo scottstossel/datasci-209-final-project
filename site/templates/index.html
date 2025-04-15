@@ -363,35 +363,35 @@
       title: "Global Tourism Trends (1994–2022)",
       text: "Explore how global tourism has evolved over nearly three decades, including the dramatic impact of the COVID-19 pandemic and the ongoing recovery.",
       image: "arrivals_by_year.jpg",
-      link: "/tourism-overview",
+      link: "{{ url_for('tourism') }}",
       linkText: "Explore the data →"
     },
     {
       title: "International Arrivals Distribution",
       text: "Visualize how international tourism is distributed globally, with interactive maps showing visitor numbers by country and region.",
       image: "arrivals_map_2019.jpg",
-      link: "/tourism-overview",
+      link: "{{ url_for('tourism') }}",
       linkText: "Explore the map →"
     },
     {
       title: "Direct Flights Impact",
       text: "Countries with higher growth in direct flight connections tend to experience greater increases in tourism arrivals, suggesting that expanding air connectivity can boost tourism.",
       image: null,
-      link: "/direct-flights",
+      link: "{{ url_for('flights') }}",
       linkText: "Learn more →"
     },
     {
       title: "COVID-19 Recovery",
       text: "The data shows a gradual recovery beginning in 2021 and continuing into 2022, though arrivals remained well below pre-pandemic levels with significant regional variations.",
       image: null,
-      link: "/tourism-overview",
+      link: "{{ url_for('tourism') }}",
       linkText: "See recovery patterns →"
     },
     {
       title: "Currency Strength Effects",
       text: "The relationship between currency strength and tourism is complex. While weaker currencies can attract visitors seeking value, they may also signal economic instability.",
       image: null,
-      link: "/currency",
+      link: "{{ url_for('currency') }}",
       linkText: "Analyze currency impact →"
     }
   ];
