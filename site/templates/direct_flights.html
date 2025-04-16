@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Direct Flights Impact Dashboard | Global Tourism Insights</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #212529;
+      --bg-dark: #121212;
+      --text-dark: #e9ecef;  
+      --footer-bg: #1f1f1f;
+      --footer-link: #adb5bd;
+      --featured-light: #f9fafb;
+      --featured-dark: #1a1a1a;
+      --highlight-glow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
+
+    /* Destination Section */
+    .destination-container {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2rem auto;
+      max-width: 1200px;
+    }
+    .destination-card {
+      background: var(--bg-light);
+      color: var(--text-light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 320px;
+      flex: 1 1 300px;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .destination-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .destination-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .destination-card:hover img {
+      transform: scale(1.05);
+    }
+    .destination-card .card-body {
+      padding: 1rem;
+    }
+    .destination-card h5 {
+      font-weight: 700;
+    }
+    .destination-card p {
+      margin-top: 0.5rem;
+    }
+    body.dark-mode .destination-card {
+      background-color: #1f1f1f;
+      color: var(--text-dark);
+    }
+    body.dark-mode .destination-card img {
+      filter: brightness(0.85) contrast(1.1);
+    }
+
+    /* Insights Section  */
+    .insight-section {
+      background-color: var(--featured-light);
+      padding: 4rem 1rem;
+    }
+    body.dark-mode .insight-section {
+      background-color: var(--featured-dark);
+    }
+    .insight-section h2 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .insight-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .insight-card {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      flex: 1 1 300px;
+      max-width: 500px;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .insight-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    body.dark-mode .insight-card {
+      background-color: #1f1f1f;
+      color: var(--text-dark);
+    }
+    .insight-card h5 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-section {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .btn-custom {
+      margin: 0.5rem;
+    }
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    #darkModeToggle {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 1050;
+      background-color: transparent;
+      color: var(--text-light);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    #darkModeToggle:hover {
+      transform: rotate(20deg) scale(1.1);
+    }
+    body.dark-mode #darkModeToggle {
+      color: var(--text-dark);
+    }
+    #scrollToTop {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 1040;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 50%;  
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.25rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, opacity 0.3s;
+    }
+    #scrollToTop.show {
+      display: flex;
+      opacity: 1;
+    }
+    #scrollToTop.hide {
+      opacity: 0;
+    }
+    #scrollToTop:hover {
+      background-color: #084298;
+    }
+    .site-footer {
+      background-color: var(--footer-bg);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .site-footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .site-footer nav a {
+      color: var(--footer-link);
+      /* margin: 0 1rem; */
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+    .site-footer nav a:hover {
+      text-decoration: underline;  
+      transform: scale(1.05);
+      color: #ffffff;
+    }
+    .site-footer nav a[href="/about"]::before {
+      content: "👥 ";
+    }
+    .site-footer nav a[href="/contact"]::before {
+      content: "📬 ";
+    }
+    .site-footer nav a[href="/"]::before {
+      content: "🏠 ";
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('index') }}">Global Tourism Insights</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/tourism-overview' %}active{% endif %}" href="{{ url_for('tourism') }}">Tourism Trends</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/direct-flights' %}active{% endif %}" href="{{ url_for('flights') }}">Direct Flights Impact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/currency' %}active{% endif %}" href="{{ url_for('currency') }}">Currency Strength Impact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- DIRECT FLIGHTS SECTION -->
+<section class="container my-5">
+  <h1 class="section-title text-center">✈️ Direct Flights Impact</h1>
+  <p class="lead text-center">Analyze how changes in direct flight connections influence international tourism growth.</p>
+
+  <div class="chart-container">
+    <!-- Your interactive chart or image goes here -->
+    <section class="section" id="direct-flight-section">
+      <h2 class="section-title text-center">📈 Tourism Growth Map</h2>
+      <div class='tableauPlaceholder' id='viz1744652404977' style='position: relative'>
+        <noscript>
+          <a href='#'><img alt='Tourism Growth Map (1995 - 2022)' src='https://public.tableau.com/static/images/to/tourism_flight_hypothesis_2/TourismGrowthMap1995-2022/1_rss.png' style='border: none' /></a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='tourism_flight_hypothesis_2/TourismGrowthMap1995-2022' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https://public.tableau.com/static/images/to/tourism_flight_hypothesis_2/TourismGrowthMap1995-2022/1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en-US' />
+          <param name='filter' value='publish=yes' />
+        </object>
+      </div>
+    
+      <p class="mt-4">
+        This visualization explores the relationship between direct flight availability and tourist arrivals. Countries with increased direct air connections often experience surges in inbound tourism, highlighting the role of air accessibility in destination competitiveness.
+        This visualization also shows countries with high direct flight increases vs. low direct flight increases. Countries in blue have experienced significant growth in direct flight connections, while countries in orange have seen more modest growth.
+      </p>
+      <p></p>
+      <p>
+        <p class="text-center mt-4"></p>
+        Data Source: <a href="https://www.unwto.org/statistics" target="_blank" rel="noopener noreferrer">UNWTO Tourism Statistics</a> and <a href="https://data.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Data</a>
+      </p>
+      
+      <script type='text/javascript'>
+        var divElement = document.getElementById('viz1744652404977');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width='100%';
+        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+    </section>
+  </div>
+</section>
+
+<!-- TRANSPORT SECTION -->
+<section class="container my-5">
+  <div class="chart-container">
+    <!-- Your interactive chart or image goes here -->
+    <section class="section" id="transport-section">
+      <h2 class="section-title text-center">📈 Tourism by Transport Mode </h2>
+      <div class='tableauPlaceholder' id='viz1744653620872' style='position: relative'>
+        <noscript>
+          <a href='#'>
+            <img alt='Tourism by Transport' src='https://public.tableau.com/static/images/to/tourism_by_transport/TourismbyTransport/1_rss.png' style='border: none' />
+          </a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='tourism_by_transport/TourismbyTransport' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https://public.tableau.com/static/images/to/tourism_by_transport/TourismbyTransport/1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en-US' />
+          <param name='filter' value='publish=yes' />
+        </object>
+      </div>
+      <p></p>
+      <p>
+        This breakdown shows the distribution of international tourist arrivals by transport mode. Air travel dominates as the primary mode of transportation for international tourism, particularly for long-haul destinations.
+      </p>
+      <p></p>
+      <p>
+        <p class="text-center mt-4"></p>
+        Data Source: <a href="https://www.unwto.org/statistics" target="_blank" rel="noopener noreferrer">UNWTO Tourism Statistics</a> and <a href="https://data.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Data</a>
+      </p>
+      <script type='text/javascript'>
+        var divElement = document.getElementById('viz1744653620872');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        var scriptElement = document.createElement('script');
+              scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+              vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+    </section>
+  </div>
+</section>
+
+
+<!-- GROWTH_SECTION -->
+<section class="container my-5">
+  <div class="chart-container">
+    <!-- Your interactive chart or image goes here -->
+    <section class="section" id="growth-section">
+      <h2 class="section-title text-center">📈 Flight Impact on Growth </h2>
+      <div class="tableauPlaceholder" id="viz1744654151103" style="position: relative">
+        <noscript>
+          <a href="#">
+            <img alt="Flight Impact on Growth" 
+                 src="https://public.tableau.com/static/images/fl/flight_impact_growth/FlightImpactonGrowth/1_rss.png" 
+                 style="border: none" />
+          </a>
+        </noscript>
+        <object class="tableauViz" style="display:none;">
+          <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+          <param name="embed_code_version" value="3" />
+          <param name="site_root" value="" />
+          <param name="name" value="flight_impact_growth/FlightImpactonGrowth" />
+          <param name="tabs" value="no" />
+          <param name="toolbar" value="yes" />
+          <param name="static_image" value="https://public.tableau.com/static/images/fl/flight_impact_growth/FlightImpactonGrowth/1.png" />
+          <param name="animate_transition" value="yes" />
+          <param name="display_static_image" value="yes" />
+          <param name="display_spinner" value="yes" />
+          <param name="display_overlay" value="yes" />
+          <param name="display_count" value="yes" />
+          <param name="language" value="en-US" />
+          <param name="filter" value="publish=yes" />
+        </object>
+      </div>
+      <p></p>
+      <p>
+        This scatter plot shows the correlation between direct flights and tourism growth for 2020. Each point represents a country, with the x-axis showing the number of direct flights and the y-axis showing tourism growth rate.
+The upward trend suggests that countries with more direct flights tend to experience higher tourism growth, particularly in the All Regions region.
+      
+
+        <p class="text-center mt-4"></p>
+        Data Source: <a href="https://www.unwto.org/statistics" target="_blank" rel="noopener noreferrer">UNWTO Tourism Statistics</a> and <a href="https://data.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Data</a>
+      </p>
+      
+      <script type="text/javascript">
+        var divElement = document.getElementById('viz1744654151103');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+              var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+    </section>
+  </div>
+</section>
+
+
+<!-- TABLEAU DASHBOARD SECTION -->
+<div class="container my-5">
+  <h3 class="text-center mb-4">Direct Flights Impact Dashboard</h3>
+  <div class="tableauPlaceholder" id="viz1744492278519" style="position: relative;">
+    <noscript>
+      <a href="#">
+        <img alt="Direct Flight Dashboard"
+             src="https://public.tableau.com/static/images/to/tourism_flight_hypothesis/GlobalTourismDashboard/1_rss.png"
+             style="border: none" />
+      </a>
+    </noscript>
+    <object class="tableauViz" style="display:none;">
+      <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+      <param name="embed_code_version" value="3" />
+      <param name="site_root" value="" />
+      <param name="name" value="tourism_flight_hypothesis/GlobalTourismDashboard" />
+      <param name="tabs" value="no" />
+      <param name="toolbar" value="yes" />
+      <param name="static_image"
+             value="https://public.tableau.com/static/images/to/tourism_flight_hypothesis/GlobalTourismDashboard/1.png" />
+      <param name="animate_transition" value="yes" />
+      <param name="display_static_image" value="yes" />
+      <param name="display_spinner" value="yes" />
+      <param name="display_overlay" value="yes" />
+      <param name="display_count" value="yes" />
+      <param name="language" value="en-US" />
+    </object>
+  </div>
+  <p></p>
+  <p>
+    The Direct Flights Impact Dashboard provides an interactive visualization of how direct flight connections influence global tourism trends. It includes insights into tourism growth by transport mode, the correlation between direct flights and tourism growth, and regional variations in flight impact. This dashboard is a valuable tool for policymakers, tourism boards, and researchers to understand the role of air connectivity in driving tourism development.
+  </p>
+  <p>
+    <p class="text-center mt-4"></p>
+    Data Source: <a href="https://www.unwto.org/statistics" target="_blank" rel="noopener noreferrer">UNWTO Tourism Statistics</a> and <a href="https://data.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Data</a>
+  </p>
+</div>
+
+<!-- Tableau JS Embed Script -->
+<script type="text/javascript">
+  var divElement = document.getElementById('viz1744492278519');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if (divElement.offsetWidth > 800) {
+    vizElement.style.width = '100%';
+    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+  } else if (divElement.offsetWidth > 500) {
+    vizElement.style.width = '100%';
+    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+  } else {
+    vizElement.style.width = '100%';
+    vizElement.style.height = '1127px';
+  }
+  var scriptElement = document.createElement('script');
+  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+<!-- TOURISM DESTINATIONS -->
+<section class="container text-center my-5">
+  <h1>🌍 Destinations with Strong Flight Growth</h1>
+  <p class="lead">Explore destinations that have experienced significant growth in tourism due to increased direct flight connections. These locations showcase the transformative impact of improved air connectivity on global travel trends.</p>
+  <div class="destination-container">
+    <div class="destination-card">
+      <img src="{{ url_for('static', filename='images/desert_camels.jpg') }}" alt="Middle East">
+      <div class="card-body">
+        <h5>Middle East</h5>
+        <p>Countries like UAE and Qatar have seen significant tourism growth following major investments in airline hubs and direct flight connections.</p>
+      </div>
+    </div>
+    <div class="destination-card">
+      <img src="{{ url_for('static', filename='images/green_mountains.jpg') }}" alt="Central Asia">
+      <div class="card-body">
+        <h5>Central Asia</h5>
+        <p>Countries like Georgia and Kazakhstan have experienced tourism booms following the introduction of more direct flights from Europe and Asia.</p>
+      </div>
+    </div>
+    <div class="destination-card">
+      <img src="{{ url_for('static', filename='images/mountain_roadtrip.jpg') }}" alt="South America">
+      <div class="card-body">
+        <h5>South America</h5>
+        <p>Countries like Colombia and Peru have seen tourism growth correlate with increased direct flight connections from North America and Europe.</p>
+      </div>
+    </div>
+  </div>
+  </section>
+
+<!-- KEY INSIGHTS SECTION -->
+<section class="insight-section">
+  <div class="container">
+    <h2>Key Insights</h2>
+    <div class="insight-cards">
+      <div class="insight-card">
+        <h5>Direct Flight Correlation</h5>
+        <p>Countries with higher growth in direct flight connections tend to experience greater increases in tourism arrivals. This suggests that expanding air connectivity can be an effective strategy for boosting tourism.</p>
+      </div>
+      <div class="insight-card">
+        <h5>Transport Mode Impact</h5>
+        <p>Air travel consistently accounts for the largest share of international tourist arrivals, highlighting the importance of aviation infrastructure for tourism development. However, land and water transport remain significant for certain regions.</p>
+      </div>
+      <div class="insight-card">
+        <h5>Regional Variations</h5>
+        <p>The impact of direct flights on tourism varies by region. Some regions show stronger correlations between flight connectivity and tourism growth, suggesting that other factors (such as visa policies, attractions, or marketing) may play more significant roles in certain areas.</p>        
+      </div>
+      <div class="insight-card">
+        <h5>Policy Implications</h5>
+        <p>For tourism boards and policymakers, these findings suggest that investing in aviation infrastructure and attracting more direct flights could be an effective strategy for increasing tourism. Collaboration between tourism authorities and airlines may yield significant benefits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3 mt-auto">
+  <div class="container">
+    <p class="mb-0">© 2025 Global Tourism Insights. All rights reserved.</p>
+    <nav>
+      <a href="{{ url_for('index') }}"><span role="img" aria-label="Home">🏠</span> Home </a>  |  
+      <a href="{{ url_for('contact') }}"><span role="img" aria-label="Contact">📬</span> Contact </a> | 
+      <a href="{{ url_for('about') }}"><span role="img" aria-label="About">👥</span> About Us </a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Dark mode toggle script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.createElement('button');
+    toggleButton.id = 'darkModeToggle';
+    toggleButton.innerHTML = '🌙 / ☀️';
+    document.body.appendChild(toggleButton);
+    
+    // Scroll Script Section 
+    const scrollToTop = document.createElement('button');
+    scrollToTop.id = 'scrollToTop';
+    scrollToTop.innerHTML = '↑';
+    document.body.appendChild(scrollToTop);
+
+    toggleButton.addEventListener('click', function () {
+      document.body.classList.toggle('dark-mode');
+      toggleButton.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+
+    scrollToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        scrollToTop.classList.add('show');
+        scrollToTop.classList.remove('hide');
+      } else {
+        scrollToTop.classList.remove('show');
+        scrollToTop.classList.add('hide');
+      }
+    });
+  });
+</script>
+</body>
+</html>
