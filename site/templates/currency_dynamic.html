@@ -265,9 +265,6 @@
   <section class="container my-5">
     <h1 class="section-title text-center">💱 Currency Strength Impact</h1>
     <p class="lead text-center">Understanding how currency fluctuations influence international tourism patterns.</p>
-    <p class="mt-4">
-      This visualization illustrates the correlation between currency strength and international tourist arrivals. A stronger currency can make a destination more expensive for foreign visitors, potentially reducing inbound tourism. Conversely, a weaker currency might attract more tourists seeking value for their money.
-    </p>
 
     <div class="chart-container">
       <!-- Vega chart will be embedded here -->
@@ -282,7 +279,17 @@
         <div class="destination-container">
           <div class="chart-card-xl">
             <h4>Vistor Percent Change</h4>
-            <div id="vega-chart-0"></div><p></p>
+            <div id="vega-chart-0"></div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; font-family: sans-serif; font-size: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 16px; height: 16px; background-color: #3b82f6; border-radius: 2px;"></div>
+                <span>More visitors than previous year</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 16px; height: 16px; background-color: #ef4444; border-radius: 2px;"></div>
+                <span>Less visitors than previous year</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -293,6 +300,16 @@
           <div class="chart-card-xl">
             <h4 style="text-align: left;">Currency Percent Change</h4>
             <div id="vega-chart-1"></div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; font-family: sans-serif; font-size: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 16px; height: 16px; background-color: #3b82f6; border-radius: 2px;"></div>
+                <span>USD strengthened vs currency</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 16px; height: 16px; background-color: #ef4444; border-radius: 2px;"></div>
+                <span>USD weakened vs currency</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
