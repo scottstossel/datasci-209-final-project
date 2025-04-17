@@ -75,6 +75,16 @@
         flex: 1 1 300px;
         max-width: 350px;
         transition: all 0.3s ease;
+      }      
+      .chart-card-xl {
+        background-color: var(--bg-light);
+        color: var(--text-light);
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        padding: 1rem;
+        flex: 1 1 calc(33.333% - 1rem);
+        max-width: 75%;
+        transition: all 0.3s ease;
       }
       .destination-card img {
         width: 100%;
@@ -82,7 +92,7 @@
         object-fit: cover;
         border-radius: 8px;
       }
-      .destination-card:hover, .impact-card:hover, .insight-card:hover{
+      .destination-card:hover, .chart-card-xl:hover, .impact-card:hover, .insight-card:hover{
         transform: scale(1.03);
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       }
@@ -99,8 +109,10 @@
         margin: 2rem auto;
       }
       body.dark-mode .destination-card,
+      body.dark-mode .chart-card-xl,
       body.dark-mode .impact-card,
       body.dark-mode .insight-card,
+      body.dark-mode .info-box,
       body.dark-mode .analysis-box {
         background-color: #1f1f1f;
         color: var(--text-dark);
@@ -264,29 +276,30 @@
         These maps show the relationship between currency strength changes and visitor numbers. The top map shows changes in visitor numbers compared to the previous year, while the bottom map shows currency percent changes relative to the USD.
         When comparing these maps, you can observe patterns that suggest how currency strength may influence tourism decisions. For example, many European countries experienced both a strengthening USD (making travel cheaper for Americans) and an increase in visitors.
       </p>
-      <h4>Vistor Percent Change</h4>
-      <div id="vega-chart-0"></div><p></p>
     </div>
-
-    <div class="chart-container">
-      <!-- Vega chart will be embedded here -->
-      <h4 style="text-align: left;">Currency Percent Change</h4>
-      <div id="vega-chart-1"></div>
-      <p></p>
-    </div>
-
-    <div class="chart-container">
-      <!-- Vega chart will be embedded here -->
-      <h4 style="text-align: left; font-weight: normal;">Currency - Tourism Correlation</h4>
-      <div id="vega-chart-2"></div><p></p>
-      <p>
-        This visualization further investigates the correlation between currency strength and tourism. Each point in the analysis represents a country, with the y-axis showing the tourism percent change from the previous year and the x-axis showing the currency percent change compared to the USD.
-      </p>
-      <p>
-        If a country's currency weakens against the USD (making it cheaper for American tourists), tourism should increase, however a weak correlation (0.42) suggests that this relationship is more complex and varies by region and other factors.
-      </p>
-    </div>
+    <section class="section">
+      <div>
+        <div class="destination-container">
+          <div class="chart-card-xl">
+            <h4>Vistor Percent Change</h4>
+            <div id="vega-chart-0"></div><p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div>
+        <div class="destination-container">
+          <div class="chart-card-xl">
+            <h4 style="text-align: left;">Currency Percent Change</h4>
+            <div id="vega-chart-1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
+
+
 
   <!-- Insights Section -->
   <section class="section">
@@ -306,6 +319,29 @@
         <img src="{{ url_for('static', filename='images/chile.jpg') }}" alt="Chile">
         <h5>Chile <span class="text-danger">-8% Visitors</span></h5>
         <p>Despite currency weakening, Chile saw decreased tourism, suggesting that affordability isn't the only influence on travel decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div>
+      <div class="destination-container">
+        <div class="chart-card-xl">
+          <h4 style="text-align: left; font-weight: normal;">Currency - Tourism Correlation</h4>
+          <div id="vega-chart-2"></div>
+          <p></p>
+          <div class="info-box">
+            <p style="text-align: center; font-weight: bold; background-color: #f8f9fa; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+              USD Strengthened vs Weakened: This map highlights how changes in currency strength relative to the USD impact tourism trends.
+            </p>
+          </div>
+          <p>
+            This visualization further investigates the correlation between currency strength and tourism. Each point in the analysis represents a country, with the y-axis showing the tourism percent change from the previous year and the x-axis showing the currency percent change compared to the USD.
+          </p>
+          <p>
+            If a country's currency weakens against the USD (making it cheaper for American tourists), tourism should increase, however a weak correlation (0.42) suggests that this relationship is more complex and varies by region and other factors.
+          </p>
+        </div>
       </div>
     </div>
   </section>

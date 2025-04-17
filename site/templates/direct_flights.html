@@ -86,6 +86,16 @@
       gap: 2rem;
       justify-content: center;
     }
+    .tableauPlaceholder {
+        background-color: var(--bg-light);
+        color: var(--text-light);
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        padding: 0.2rem;
+        flex: 1 1 calc(33.333% - 1rem);
+        /* max-width: 75%; */
+        transition: all 0.3s ease;
+    }
     .insight-card {
       background-color: var(--bg-light);
       color: var(--text-light);
@@ -96,7 +106,7 @@
       max-width: 500px;
       transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     }
-    .insight-card:hover {
+    .insight-card:hover, .tableauPlaceholder:hover {
       transform: scale(1.03);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     }
